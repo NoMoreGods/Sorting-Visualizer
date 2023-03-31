@@ -1,0 +1,18 @@
+.array{
+	display: flex;
+	flex-direction: row;
+	
+	height: 80%;
+	justify-content: space-between;
+	align-items: end;
+}
+.node{
+display: flex;
+background-color: rgb(113, 159, 130);
+width: 10px;
+}
+
+/* const color1 = rgb(113, 159, 130);
+const color2 = rgb(1, 181, 152);
+const color3 = rgb(73, 93, 104);
+const color4 = rgb(4, 52, 72); */
