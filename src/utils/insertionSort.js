@@ -1,25 +1,18 @@
+import { swap } from "./swap";
+import { delay } from "./delay";
+
+
 export async function insertionSort() {
+
 	const array = document.querySelectorAll(".node");
-	console.log('In insert()');
-	for (let i = 1; i < array.length; i++) {
-		console.log('In i loop())');
-		let current = array[i];
-		let j = i - 1;
-		while ((j > -1) && (parseInt(current.style.height) < parseInt(array[j].style.height))) {
-			console.log('In while loop()');
+	for (let i = 0; i < array.length; i++) {
+		let j = i;
+		while ((j >= 0) && ( parseInt(array[j].style.height) > parseInt(array[j+1].style.height))) {
 			array[j + 1].style.background = "blue";
 			array[j].style.background = "blue";
-			await waitforme(20);
-			array[j + 1].style.height = array[j].style.height;
-			j--;
+			swap(array[j+1], array[j])
+			j = j - 1;
+			await delay(20);
 		}
-		array[j + 1].style.height = current.style.height
 	}
-}
-
-
-function waitforme(milisec) {
-	return new Promise(resolve => {
-		setTimeout(() => { resolve('') }, milisec);
-	})
 }

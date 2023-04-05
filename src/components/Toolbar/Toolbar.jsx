@@ -1,26 +1,62 @@
 import React from "react";
 import { bubbleSort } from "../../utils/bubbleSort";
-import "./Toolbar.css";
 
-export const Toolbar = ({ array }) => {
+import "./Toolbar.css";
+import { insertionSort } from "../../utils/insertionSort";
+import { selectionSort } from "../../utils/selectionSort";
+import { quickSortStarter } from "../../utils/quickSort";
+
+export const Toolbar = ({ setres }) => {
   return (
     <div className="toolbar">
-      <div className="generateArray">Generate new Array</div>
-      <div className="arraySize">Change Array Size & Sorting Speed</div>
-      <div className="algo">
-        <div className="mergeSort">Merge Sort</div>
-        <div className="quickSort">Quick Sort</div>
-        <div className="heapSort">Heap Sort</div>
-        <div className="bubbleSort">Bubble Sort</div>
-      </div>
-      <div
-        className="sort"
+      <button
+        className="generateArray"
         onClick={() => {
-          console.log(array);
+          setres((old) => {
+            return !old;
+          });
         }}
       >
-        Sort!
+        Generate new Array
+      </button>
+      <div className="arraySize">Change Array Size & Sorting Speed</div>
+      <div className="algo">
+        <button className="mergeSort">Merge Sort</button>
+        <button
+          className="quickSort"
+          onClick={() => {
+            quickSortStarter();
+          }}
+        >
+          Quick Sort
+        </button>
+        <button className="heapSort">Heap Sort</button>
+        <button
+          className="insertionSort"
+          onClick={() => {
+            insertionSort();
+          }}
+        >
+          Insertion Sort
+        </button>
+        <button
+          className="selectionSort"
+          onClick={() => {
+            selectionSort();
+          }}
+        >
+          Selection Sort
+        </button>
+        <button
+          className="bubbleSort"
+          onClick={() => {
+            bubbleSort();
+          }}
+        >
+          Bubble Sort
+        </button>
       </div>
+      <button className="sort">Sort!</button>
     </div>
   );
 };

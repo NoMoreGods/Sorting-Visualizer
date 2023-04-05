@@ -1,9 +1,6 @@
 import React from "react";
 import "./SortingVisualizer.css";
 import { Toolbar } from "./Toolbar/Toolbar";
-import { bubbleSort } from "../utils/bubbleSort";
-import { selectionSort } from "../utils/selectionSort";
-import { insertionSort } from "../utils/insertionSort";
 
 export const SortingVisualizer = () => {
   const [array, setArray] = React.useState([]);
@@ -59,56 +56,7 @@ export const SortingVisualizer = () => {
 
   return (
     <div>
-      <div className="toolbar">
-        <button
-          className="generateArray"
-          onClick={() => {
-            setres((old) => {
-              return !old;
-            });
-          }}
-        >
-          Generate new Array
-        </button>
-        <div className="arraySize">Change Array Size & Sorting Speed</div>
-        <div className="algo">
-          <button className="mergeSort">Merge Sort</button>
-          <button className="quickSort">Quick Sort</button>
-          <button className="heapSort">Heap Sort</button>
-          <button
-            className="insertionSort"
-            onClick={() => {
-              insertionSort();
-            }}
-          >
-            Insertion Sort
-          </button>
-          <button
-            className="selectionSort"
-            onClick={() => {
-              selectionSort();
-            }}
-          >
-            Selection Sort
-          </button>
-          <button
-            className="bubbleSort"
-            onClick={() => {
-              bubbleSort();
-            }}
-          >
-            Bubble Sort
-          </button>
-        </div>
-        <button
-          className="sort"
-          onClick={() => {
-            console.log(array);
-          }}
-        >
-          Sort!
-        </button>
-      </div>
+      <Toolbar setres={setres} />
 
       <div className="array">
         {array.map((value, id) => {
