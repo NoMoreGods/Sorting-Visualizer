@@ -11,7 +11,9 @@ export async function selectionSort (){
 		for (let j = i+1; j < array.length; j++) {
 			array[j].style.background = 'blue';
 			array[i].style.background = 'blue';
+			await delay(20);
 			if (parseInt(array[j].style.height) < parseInt(array[min].style.height)) {min = j};
+		
 		}
 		if (min !== i){
 			await delay(20);

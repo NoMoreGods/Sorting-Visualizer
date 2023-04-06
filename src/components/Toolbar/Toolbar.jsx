@@ -5,6 +5,7 @@ import "./Toolbar.css";
 import { insertionSort } from "../../utils/insertionSort";
 import { selectionSort } from "../../utils/selectionSort";
 import { quickSortStarter } from "../../utils/quickSort";
+import { mergeSortStarter } from "../../utils/mergeSort";
 
 export const Toolbar = ({ setres }) => {
   return (
@@ -21,7 +22,14 @@ export const Toolbar = ({ setres }) => {
       </button>
       <div className="arraySize">Change Array Size & Sorting Speed</div>
       <div className="algo">
-        <button className="mergeSort">Merge Sort</button>
+        <button
+          className="mergeSort"
+          onClick={() => {
+            mergeSortStarter();
+          }}
+        >
+          Merge Sort
+        </button>
         <button
           className="quickSort"
           onClick={() => {
