@@ -6,8 +6,9 @@ import { insertionSort } from "../../utils/insertionSort";
 import { selectionSort } from "../../utils/selectionSort";
 import { quickSortStarter } from "../../utils/quickSort";
 import { mergeSortStarter } from "../../utils/mergeSort";
+import { heapSortStarter } from "../../utils/heapSort";
 
-export const Toolbar = ({ setres }) => {
+export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
   return (
     <div className="toolbar">
       <button
@@ -20,7 +21,22 @@ export const Toolbar = ({ setres }) => {
       >
         Generate new Array
       </button>
-      <div className="arraySize">Change Array Size & Sorting Speed</div>
+
+      <div className="arraySize">
+        <input
+          type="range"
+          onChange={(e) => {
+            setNumberOfBars(e.target.value);
+          }}
+          min={10}
+          max={50}
+          step={1}
+          value={numberOfBars}
+          name="bars"
+          id=""
+        />
+        <label htmlFor="">Change Array Size & Sorting Speed</label>
+      </div>
       <div className="algo">
         <button
           className="mergeSort"
@@ -38,7 +54,14 @@ export const Toolbar = ({ setres }) => {
         >
           Quick Sort
         </button>
-        <button className="heapSort">Heap Sort</button>
+        <button
+          className="heapSort"
+          onClick={() => {
+            heapSortStarter();
+          }}
+        >
+          Heap Sort
+        </button>
         <button
           className="insertionSort"
           onClick={() => {
