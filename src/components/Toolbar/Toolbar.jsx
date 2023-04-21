@@ -1,7 +1,6 @@
 import React from "react";
+import "../styles/Toolbar.scss";
 import { bubbleSort } from "../../utils/bubbleSort";
-
-import "./Toolbar.css";
 import { insertionSort } from "../../utils/insertionSort";
 import { selectionSort } from "../../utils/selectionSort";
 import { quickSortStarter } from "../../utils/quickSort";
@@ -22,22 +21,22 @@ export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
         Generate new Array
       </button>
 
-      <div className="arraySize">
+      <div className="array-size">
+        <label htmlFor="">Change Array Size & Sorting Speed</label>
         <input
           type="range"
           onChange={(e) => {
             setNumberOfBars(e.target.value);
           }}
           min={10}
-          max={50}
+          max={40}
           step={1}
           value={numberOfBars}
           name="bars"
           id=""
         />
-        <label htmlFor="">Change Array Size & Sorting Speed</label>
       </div>
-      <div className="algo">
+      <div className="algo-box">
         <button
           className="mergeSort"
           onClick={() => {
@@ -86,8 +85,9 @@ export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
         >
           Bubble Sort
         </button>
+
+        <button className="sort">Sort!</button>
       </div>
-      <button className="sort">Sort!</button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./components/styles/App.scss";
 import { SortingVisualizer } from "./components/SortingVisualizer";
 
 function App() {

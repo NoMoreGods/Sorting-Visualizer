@@ -1,5 +1,5 @@
 import React from "react";
-import "./SortingVisualizer.css";
+import "./styles/SortingVisualizer.scss";
 import { Toolbar } from "./Toolbar/Toolbar";
 
 export const SortingVisualizer = () => {
@@ -17,19 +17,7 @@ export const SortingVisualizer = () => {
     setArray(createArray(numberOfBars));
   }
 
-  // Change this value for the speed of the animations.
-  const ANIMATION_SPEED_MS = 1;
-
-  // Change this value for the number of bars (value) in the array.
-  const NUMBER_OF_ARRAY_BARS = 20;
-
-  // This is the main color of the array bars.
-  const PRIMARY_COLOR = "turquoise";
-
-  // This is the color of array bars that are being compared throughout the animations.
-  const SECONDARY_COLOR = "red";
-
-  function generateRandomNum(min = 5, max = 600) {
+  function generateRandomNum(min = 50, max = 500) {
     return Math.floor(min + Math.random() * (max - min));
   }
   function createArray(numberOfBars) {
@@ -41,7 +29,7 @@ export const SortingVisualizer = () => {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       <Toolbar
         setres={setres}
         setNumberOfBars={setNumberOfBars}
@@ -51,11 +39,24 @@ export const SortingVisualizer = () => {
       <div className="array">
         {array.map((value, id) => {
           return (
-            <div key={id} className="node" style={{ height: `${value}px` }}>
+            <div
+              key={id}
+              className="node"
+              style={{
+                height: `${value}px`,
+              }}
+            >
               {value}
             </div>
           );
         })}
+      </div>
+      <div className="">
+        <div className="color1">Main</div>
+        <div className="color2">Comparing</div>
+        <div className="color3">color-inPlace</div>
+        <div className="color4">finished_successfully</div>
+        <div className="color5">finished_successfully</div>
       </div>
     </div>
   );

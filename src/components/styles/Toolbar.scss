@@ -1,0 +1,29 @@
+@import 'variables';
+
+
+.toolbar{
+	font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+	display: flex;
+	height: 15vh;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	background-color: $toolbarColor;
+}
+
+
+.array-size{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+}
+.algo-box{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}

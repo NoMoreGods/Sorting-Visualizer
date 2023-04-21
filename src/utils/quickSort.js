@@ -1,18 +1,20 @@
 import { swap } from "./swap";
 import { delay } from "./delay";
-
+import { compare } from "./compare";
+import {comparingColor1,comparingColor2, inPlaceColor, sortedColor} from './rgb'
 
 export async function quickSortStarter(){
-  let ele = document.querySelectorAll('.node');
+  const ele = document.querySelectorAll('.node');
   let l = 0;
   let r = ele.length - 1;
- 
+
+
   await quickSort(ele, l, r);
+  await compare(ele)
 };
 
 
 async function quickSort(ele, l, r){
-  console.log('In quickSort()', `l=${l} r=${r}`, typeof(l), typeof(r));
   if(l < r){
       let pivot_index = await partitionLomuto(ele, l, r);
       await quickSort(ele, l, pivot_index - 1);
@@ -20,8 +22,8 @@ async function quickSort(ele, l, r){
   }
   else{
       if(l >= 0 && r >= 0 && l <ele.length && r <ele.length){
-          ele[r].style.background = 'green';
-          ele[l].style.background = 'green';
+          ele[r].style.background = sortedColor;
+          ele[l].style.background = sortedColor;
       }
   }
 }
@@ -33,7 +35,7 @@ async function partitionLomuto(ele, l, r){
   ele[r].style.background = 'red';
   for(let j = l; j <= r - 1; j++){
       // color current element
-      ele[j].style.background = 'yellow';
+      ele[j].style.background = comparingColor1;
       // pauseChamp
       await delay(20);
 
@@ -41,8 +43,8 @@ async function partitionLomuto(ele, l, r){
           i++;
           swap(ele[i], ele[j]);
           // color 
-          ele[i].style.background = 'orange';
-          if(i != j) ele[j].style.background = 'orange';
+          ele[i].style.background = comparingColor2;
+          if(i != j) ele[j].style.background = comparingColor2;
           // pauseChamp
           await delay(20);
       }
@@ -57,15 +59,15 @@ async function partitionLomuto(ele, l, r){
   swap(ele[i], ele[r]); // pivot height one
   // color
   ele[r].style.background = 'pink';
-  ele[i].style.background = 'green';
+  ele[i].style.background = sortedColor;
 
   // pauseChamp
   await delay(20);
   
   // color
   for(let k = 0; k < ele.length; k++){
-      if(ele[k].style.background != 'green')
-          ele[k].style.background = 'cyan';
+      if(ele[k].style.background != sortedColor)
+          ele[k].style.background = inPlaceColor;
   }
 
   return i;
