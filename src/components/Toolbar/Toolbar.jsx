@@ -13,9 +13,7 @@ export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
       <button
         className="generateArray"
         onClick={() => {
-          setres((old) => {
-            return !old;
-          });
+          setres((old) => !old);
         }}
       >
         Generate new Array

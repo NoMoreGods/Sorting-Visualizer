@@ -10,13 +10,12 @@ export const SortingVisualizer = () => {
 
   React.useEffect(() => {
     restart();
-    setSortedArray([array.slice().sort((a, b) => a - b)]);
+    setSortedArray([...array.slice().sort((a, b) => a - b)]);
   }, [res, numberOfBars]);
 
   function restart() {
     setArray(createArray(numberOfBars));
   }
-
   function generateRandomNum(min = 50, max = 500) {
     return Math.floor(min + Math.random() * (max - min));
   }

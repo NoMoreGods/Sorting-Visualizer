@@ -1,4 +1,3 @@
-import { swap } from "./swap";
 import { delay } from "./delay";
 import {comparingColor1,comparingColor2, inPlaceColor, sortedColor} from './rgb'
 
@@ -11,7 +10,6 @@ export async function mergeSortStarter(){
     
 }
 
-//let delay = 30;
 async function merge(ele, low, mid, high){
     const n1 = mid - low + 1;
     const n2 = high - mid;
@@ -45,6 +43,8 @@ async function merge(ele, low, mid, high){
             }
             
             ele[k].style.height = left[i];
+            
+            ele[k].innerText = parseInt(left[i]);
             i++;
             k++;
         }
@@ -57,6 +57,7 @@ async function merge(ele, low, mid, high){
                 ele[k].style.background = inPlaceColor;
             } 
             ele[k].style.height = right[j];
+            ele[k].innerText = parseInt(right[j]);
             j++;
             k++;
         }
@@ -71,6 +72,7 @@ async function merge(ele, low, mid, high){
             ele[k].style.background = inPlaceColor;
         }
         ele[k].style.height = left[i];
+        ele[k].innerText = parseInt(left[i]);
         i++;
         k++;
     }
@@ -84,6 +86,7 @@ async function merge(ele, low, mid, high){
             ele[k].style.background = inPlaceColor;
         }
         ele[k].style.height = right[j];
+        ele[k].innerText =parseInt(right[j]);
         j++;
         k++;
     }
