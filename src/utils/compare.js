@@ -10,7 +10,7 @@ export async function compare (currentNodeList){
 	for (let i=0; i < currentArray.length; i++){
 		if(sortedArray[i] === currentArray[i]){
 			currentNodeList[i].style.background = sortedColor
-			await delay(20)
+			await delay(50)
 		}
 	}
 }

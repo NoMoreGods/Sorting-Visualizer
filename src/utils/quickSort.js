@@ -8,7 +8,6 @@ export async function quickSortStarter(){
   let l = 0;
   let r = ele.length - 1;
 
-
   await quickSort(ele, l, r);
   await compare(ele)
 };
@@ -22,8 +21,8 @@ async function quickSort(ele, l, r){
   }
   else{
       if(l >= 0 && r >= 0 && l <ele.length && r <ele.length){
-          ele[r].style.background = sortedColor;
-          ele[l].style.background = sortedColor;
+          ele[r].style.background = comparingColor1;
+          ele[l].style.background = comparingColor2;
       }
   }
 }
@@ -32,10 +31,10 @@ async function quickSort(ele, l, r){
 async function partitionLomuto(ele, l, r){
   let i = l - 1;
   // color pivot element
-  ele[r].style.background = 'red';
+  ele[r].style.background = "red";
   for(let j = l; j <= r - 1; j++){
-      // color current element
-      ele[j].style.background = comparingColor1;
+    //   color current element
+      ele[j].style.background = "white";
       // delay
       await delay(50);
 
@@ -43,32 +42,32 @@ async function partitionLomuto(ele, l, r){
           i++;
           swap(ele[i], ele[j]);
           // color 
-          ele[i].style.background = comparingColor2;
-          if(i != j) ele[j].style.background = comparingColor2;
-          // pauseChamp
+        //   ele[i].style.background = "pink";
+        //   if(i != j) ele[j].style.background = "yellow";
+          // delay
           await delay(50);
       }
       else{
-          // color if not less than pivot
-          ele[j].style.background = 'pink';
+        //   color if not less than pivot
+          ele[j].style.background = inPlaceColor;
       }
   }
   i++; 
-  // pauseChamp
+  // delay
   await delay(50);
   swap(ele[i], ele[r]); // pivot height one
   // color
-  ele[r].style.background = 'pink';
-  ele[i].style.background = sortedColor;
+//   ele[r].style.background = 'pink';
+//   ele[i].style.background = inPlaceColor;
 
-  // pauseChamp
+  // delay
   await delay(50);
   
   // color
-  for(let k = 0; k < ele.length; k++){
-      if(ele[k].style.background != sortedColor)
-          ele[k].style.background = inPlaceColor;
-  }
+//   for(let k = 0; k < ele.length; k++){
+//       if(ele[k].style.background != inPlaceColor)
+//           ele[k].style.background = inPlaceColor;
+//   }
 
   return i;
 }
