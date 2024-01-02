@@ -1,26 +1,25 @@
-import React from "react";
-import "../styles/Toolbar.scss";
-import { bubbleSort } from "../../utils/bubbleSort";
-import { insertionSort } from "../../utils/insertionSort";
-import { selectionSort } from "../../utils/selectionSort";
-import { quickSortStarter } from "../../utils/quickSort";
-import { mergeSortStarter } from "../../utils/mergeSort";
-import { heapSortStarter } from "../../utils/heapSort";
+import React from 'react';
+import '../styles/Toolbar.scss';
+import { bubbleSort } from '../../utils/sortTypes/bubbleSort';
+import { insertionSortStarter } from '../../utils/sortTypes/insertionSort';
+import { selectionSortStarter } from '../../utils/sortTypes/selectionSort';
+import { quickSortStarter } from '../../utils/sortTypes/quickSort';
+import { mergeSortStarter } from '../../utils/sortTypes/mergeSort';
+import { heapSortStarter } from '../../utils/sortTypes/heapSort';
 
-export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
+export const Toolbar = ({ setRes, setNumberOfBars, numberOfBars }) => {
   return (
     <div className="toolbar">
       <button
         className="generateArray"
         onClick={() => {
-          setres((old) => !old);
-        }}
-      >
+          setRes((old) => !old);
+        }}>
         Generate new Array
       </button>
 
       <div className="array-size">
-        <label htmlFor="">Change Array Size & Sorting Speed</label>
+        <label>Change Array Size & Sorting Speed</label>
         <input
           type="range"
           onChange={(e) => {
@@ -34,53 +33,48 @@ export const Toolbar = ({ setres, setNumberOfBars, numberOfBars }) => {
           id=""
         />
       </div>
+
       <div className="algo-box">
         <button
           className="mergeSort"
           onClick={() => {
             mergeSortStarter();
-          }}
-        >
+          }}>
           Merge Sort
         </button>
         <button
           className="quickSort"
           onClick={() => {
             quickSortStarter();
-          }}
-        >
+          }}>
           Quick Sort
         </button>
         <button
           className="heapSort"
           onClick={() => {
             heapSortStarter();
-          }}
-        >
+          }}>
           Heap Sort
         </button>
         <button
           className="insertionSort"
           onClick={() => {
-            insertionSort();
-          }}
-        >
+            insertionSortStarter();
+          }}>
           Insertion Sort
         </button>
         <button
           className="selectionSort"
           onClick={() => {
-            selectionSort();
-          }}
-        >
+            selectionSortStarter();
+          }}>
           Selection Sort
         </button>
         <button
           className="bubbleSort"
           onClick={() => {
             bubbleSort();
-          }}
-        >
+          }}>
           Bubble Sort
         </button>
 

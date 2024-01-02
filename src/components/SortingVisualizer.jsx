@@ -1,11 +1,12 @@
 import React from "react";
 import "./styles/SortingVisualizer.scss";
+import { generateRandomNum } from "../utils/generateRandomNum";
 import { Toolbar } from "./Toolbar/Toolbar";
 
 export const SortingVisualizer = () => {
   const [numberOfBars, setNumberOfBars] = React.useState(25);
   const [array, setArray] = React.useState([]);
-  const [res, setres] = React.useState(false);
+  const [res, setRes] = React.useState(false);
   const [sortedArray, setSortedArray] = React.useState([]);
 
   React.useEffect(() => {
@@ -15,9 +16,6 @@ export const SortingVisualizer = () => {
 
   function restart() {
     setArray(createArray(numberOfBars));
-  }
-  function generateRandomNum(min = 50, max = 500) {
-    return Math.floor(min + Math.random() * (max - min));
   }
   function createArray(numberOfBars) {
     let result = [];
@@ -30,7 +28,7 @@ export const SortingVisualizer = () => {
   return (
     <div className="wrapper">
       <Toolbar
-        setres={setres}
+        setRes={setRes}
         setNumberOfBars={setNumberOfBars}
         numberOfBars={numberOfBars}
       />
@@ -50,6 +48,8 @@ export const SortingVisualizer = () => {
           );
         })}
       </div>
+
+      {/* Проверка цветов */}
       <div className="">
         <div className="color1">Main</div>
         <div className="color2">Comparing</div>

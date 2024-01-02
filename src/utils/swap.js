@@ -1,4 +1,4 @@
-import {comparingColor1,comparingColor2, inPlaceColor, sortedColor} from './rgb'
+import {comparingColor1,comparingColor2} from './rgb'
 
 export function swap(el1, el2) {
 	let temp = el1.style.height;
