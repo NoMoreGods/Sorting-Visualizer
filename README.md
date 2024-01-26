@@ -1,3 +1,4 @@
+# UNFINISHED
 # Sorting Visualizer
 
 # Rules 
